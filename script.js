@@ -22,7 +22,7 @@ document.onkeydown = function(e){
 
     } 
 } 
-score = 0;
+score = -1;
 cross = true;
 audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3'); 
