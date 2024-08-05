@@ -22,11 +22,10 @@ document.onkeydown = function(e){
 
     } 
 } 
-score = 0;
 cross = true;
 audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3'); 
-isOut = true;
+
 
 setTimeout(() => {
     audio.play(); 
@@ -62,8 +61,7 @@ setInterval(()=>{
             audio.pause(); 
         },1000);
     }else if(offsetX<145 && cross){
-        score+=1;
-        //updateScore(score,isOut);
+      
         cross = false; 
         setTimeout(()=>{
             cross = true; 
@@ -79,9 +77,3 @@ setInterval(()=>{
 
 },10);
 
- 
-function updateScore(score){
-    score=score-1;
-    scoreCount.innerHTML = "Your Score : " + score
-
-} 
