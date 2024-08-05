@@ -31,6 +31,7 @@ setTimeout(() => {
     audio.play(); 
    console.log(111);
 }, 1000);
+let gameRun = true;
 setInterval(()=>{
     dino = document.querySelector('.dino');
     gameover = document.querySelector('.gameOver'); 
@@ -46,7 +47,7 @@ setInterval(()=>{
 
     console.log(offsetX,offsetY); 
 
-    if(offsetX<113 && offsetY<52){
+    if(offsetX<73 && offsetY<52){
       
         alert("Game Over")
         setTimeout(function(){
@@ -59,7 +60,8 @@ setInterval(()=>{
             audiogo.pause();
             audio.pause(); 
         },1000);
-    }else if(offsetX<145 && cross){
+        gameRun=false;
+    }else if(offsetX<145 && cross && gameRun){
         score+=1;
         updateScore(score);
         cross = false; 
