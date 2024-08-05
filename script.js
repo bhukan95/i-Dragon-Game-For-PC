@@ -26,7 +26,7 @@ document.onkeydown = function (e) {
         dino.style.left = (dinoX - 112) + "px";
     }
 }
-
+let gameInterval = true;
 setInterval(() => {
     dino = document.querySelector('.dino');
     gameOver = document.querySelector('.gameOver');
@@ -49,8 +49,9 @@ setInterval(() => {
             audiogo.pause();
             audio.pause();
         }, 1000);
+        gameInterval=false;
     }
-    else if (offsetX < 145 && cross) {
+    else if (offsetX < 145 && cross && gameInterval) {
         score += 1;
         updateScore(score);
         cross = false;
