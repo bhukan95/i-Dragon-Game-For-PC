@@ -50,6 +50,7 @@ setInterval(()=>{
     if(offsetX<73 && offsetY<52){
       
         alert("Game Over")
+        finalScore(score)
         setTimeout(function(){
             location.reload();
         }, 500);
@@ -78,7 +79,11 @@ setInterval(()=>{
     }
 
 },10);
+function fianlScore(score){
 
+   scoreCount.innerHTML = "Final Score : " + score
+
+} 
 function updateScore(score){
 
    scoreCount.innerHTML = "Your Score : " + score
