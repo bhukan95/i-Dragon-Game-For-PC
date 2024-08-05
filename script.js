@@ -83,6 +83,6 @@ document.onkeydown = function(e){
 
 function updateScore(score){
 
-   scoreCount.innerHTML = "Your Score : " + score
+   scoreCount.innerHTML = "Your Score : " + score-1
 
 } 
