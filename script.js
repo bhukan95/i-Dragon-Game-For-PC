@@ -22,7 +22,8 @@ document.onkeydown = function(e){
 
     } 
 } 
-score = -1;
+
+score = 0;
 cross = true;
 audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3'); 
@@ -31,7 +32,8 @@ setTimeout(() => {
     audio.play(); 
    console.log(111);
 }, 1000);
-setInterval(()=>{
+
+let gameLoop = setInterval(()=>{ // Store the interval ID
     dino = document.querySelector('.dino');
     gameover = document.querySelector('.gameOver'); 
     obstacle = document.querySelector('.obstacle');
@@ -59,6 +61,7 @@ setInterval(()=>{
             audiogo.pause();
             audio.pause(); 
         },1000);
+        clearInterval(gameLoop); // Stop the interval on game over
     }else if(offsetX<145 && cross){
         score+=1;
         updateScore(score);
