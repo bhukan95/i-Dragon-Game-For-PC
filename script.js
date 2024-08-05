@@ -1,3 +1,12 @@
+score = 0;
+cross = true;
+audio = new Audio('music.mp3');
+audiogo = new Audio('gameover.mp3'); 
+
+setTimeout(() => {
+    audio.play(); 
+}, 1000);
+
 document.onkeydown = function(e){
     console.log("Key code is: ",e.keyCode)
     if(e.keyCode==38){
@@ -23,17 +32,8 @@ document.onkeydown = function(e){
     } 
 } 
 
-score = 0;
-cross = true;
-audio = new Audio('music.mp3');
-audiogo = new Audio('gameover.mp3'); 
 
-setTimeout(() => {
-    audio.play(); 
-   console.log(111);
-}, 1000);
-
-let gameLoop = setInterval(()=>{ // Store the interval ID
+ setInterval(()=>{ // Store the interval ID
     dino = document.querySelector('.dino');
     gameover = document.querySelector('.gameOver'); 
     obstacle = document.querySelector('.obstacle');
@@ -46,22 +46,23 @@ let gameLoop = setInterval(()=>{ // Store the interval ID
     offsetX = Math.abs(dx-ox);
     offsetY = Math.abs(dy-oy); 
 
-    console.log(offsetX,offsetY); 
 
-    if(offsetX<113 && offsetY<52){
+    if(offsetX<73 && offsetY<52){
       
-        alert("Game Over")
-        setTimeout(function(){
-            location.reload();
-        }, 500);
-        
+        alert("Game Over - Reload to Play Again")
         obstacle.classList.remove('obstacleAni'); 
         audiogo.play();  
+        // setTimeout(function(){
+        //     location.reload();
+        // }, 500);
+        
+       
+        
         setTimeout(()=>{
             audiogo.pause();
             audio.pause(); 
         },1000);
-        clearInterval(gameLoop); // Stop the interval on game over
+       // clearInterval(gameLoop); // Stop the interval on game over
     }else if(offsetX<145 && cross){
         score+=1;
         updateScore(score);
