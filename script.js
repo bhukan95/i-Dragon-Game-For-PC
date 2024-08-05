@@ -50,7 +50,7 @@ setInterval(()=>{
     if(offsetX<73 && offsetY<52){
       
         alert("Game Over") 
-        isOut=false; 
+               updateScore(score);
         setTimeout(function(){
             location.reload();
         }, 500);
@@ -63,7 +63,7 @@ setInterval(()=>{
         },1000);
     }else if(offsetX<145 && cross){
         score+=1;
-        updateScore(score,isOut);
+        //updateScore(score,isOut);
         cross = false; 
         setTimeout(()=>{
             cross = true; 
@@ -80,12 +80,8 @@ setInterval(()=>{
 },10);
 
  
-function updateScore(score,flag){
-   if(flag){
+function updateScore(score){
+    score=score-1;
     scoreCount.innerHTML = "Your Score : " + score
-   }else{
-    scoreCount.innerHTML = "final Score : " + (score-1)
-   }
-   
 
 } 
