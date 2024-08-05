@@ -26,12 +26,12 @@ score = 0;
 cross = true;
 audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3'); 
+isOut = true;
 
 setTimeout(() => {
     audio.play(); 
    console.log(111);
 }, 1000);
-let gameRun = true;
 setInterval(()=>{
     dino = document.querySelector('.dino');
     gameover = document.querySelector('.gameOver'); 
@@ -49,8 +49,8 @@ setInterval(()=>{
 
     if(offsetX<73 && offsetY<52){
       
-        alert("Game Over")
-        finalScore(score)
+        alert("Game Over") 
+        isOut=false; 
         setTimeout(function(){
             location.reload();
         }, 500);
@@ -61,10 +61,9 @@ setInterval(()=>{
             audiogo.pause();
             audio.pause(); 
         },1000);
-        gameRun=false;
-    }else if(offsetX<145 && cross && gameRun){
+    }else if(offsetX<145 && cross){
         score+=1;
-        updateScore(score);
+        updateScore(score,isOut);
         cross = false; 
         setTimeout(()=>{
             cross = true; 
@@ -79,13 +78,14 @@ setInterval(()=>{
     }
 
 },10);
-function fianlScore(score){
 
-   scoreCount.innerHTML = "Final Score : " + score
-
-} 
-function updateScore(score){
-
-   scoreCount.innerHTML = "Your Score : " + score
+ 
+function updateScore(score,flag){
+   if(flag){
+    scoreCount.innerHTML = "Your Score : " + score
+   }else{
+    scoreCount.innerHTML = "final Score : " + (score-1)
+   }
+   
 
 } 
