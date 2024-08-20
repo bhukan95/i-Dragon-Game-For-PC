@@ -47,12 +47,11 @@ setInterval(()=>{
     console.log(offsetX,offsetY); 
 
     if(offsetX<73 && offsetY<52){
-        if(score==0){
-             alert("Game Over\nYour Score is : "+0);
+        if(score<0){
+             alert("Game Over\nYour Score is : 0");
         }else{
            alert("Game Over\nYour Score is : "+--score);
-        }
-       
+        } 
         setTimeout(function(){
             location.reload();
         }, 500);
