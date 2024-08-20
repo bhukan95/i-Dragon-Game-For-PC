@@ -26,7 +26,7 @@ cross = true;
 audio = new Audio('music.mp3');
 audiogo = new Audio('gameover.mp3'); 
 
-
+let score = 0;
 setTimeout(() => {
     audio.play(); 
    console.log(111);
@@ -48,8 +48,7 @@ setInterval(()=>{
 
     if(offsetX<73 && offsetY<52){
       
-        alert("Game Over") 
-               updateScore(score);
+        alert("Game Over\nYour Score is : "+--score);
         setTimeout(function(){
             location.reload();
         }, 500);
@@ -73,6 +72,7 @@ setInterval(()=>{
             obstacle.style.animationDuration =  newDur +'s';
             
         },500); 
+        score++;
     }
 
 },10);
